@@ -19,12 +19,12 @@ public class Start {
         int ry = y / 2;
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                int[] p = new int[] { i, j };
+                int[] p = new int[]{i, j};
                 if (r.nextDouble() < 0.25 && !(rx == i && ry == j))
                     mars.put(p, "#");
             }
         }
-        mars.put(new int[] { rx, ry }, "n");
+        mars.put(new int[]{rx, ry}, "n");
     }
 
     public static int[] maximum(Set<int[]> set) {
@@ -59,19 +59,19 @@ public class Start {
             for (int i = 0; i < max[0]; i++) {
                 // System.out.println(i + "," + j + ": " + get(mars, new int[] { i, j }));
 
-                if (get(mars, new int[] { i, j }) == null) {
+                if (get(mars, new int[]{i, j}) == null) {
                     System.out.print(" ");
                     continue;
                 }
-                if (get(mars, new int[] { i, j }).equals("#"))
+                if (get(mars, new int[]{i, j}).equals("#"))
                     System.out.print("#");
-                else if (get(mars, new int[] { i, j }).equals("n"))
+                else if (get(mars, new int[]{i, j}).equals("n"))
                     System.out.print("^");
-                else if (get(mars, new int[] { i, j }).equals("s"))
+                else if (get(mars, new int[]{i, j}).equals("s"))
                     System.out.print("V");
-                else if (get(mars, new int[] { i, j }).equals("e"))
+                else if (get(mars, new int[]{i, j}).equals("e"))
                     System.out.print(">");
-                if (get(mars, new int[] { i, j }).equals("w"))
+                if (get(mars, new int[]{i, j}).equals("w"))
                     System.out.print("<");
 
             }
@@ -104,22 +104,19 @@ public class Start {
             int[] p = findeRover();
             if (get(mars, p).equals("n"))
                 p[1]--;
-                 if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
-                    p[1]++;
-            }
-            else if (get(mars, p).equals("s"))
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
                 p[1]++;
-                if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
-                    p[1]--;
-                }
-            else if (get(mars, p).equals("e"))
+            } else if (get(mars, p).equals("s"))
+                p[1]++;
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
+                p[1]--;
+            } else if (get(mars, p).equals("e"))
                 p[0]++;
-                if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
-                     p[0]--;
-            }
-            else if (get(mars, p).equals("w"))
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
                 p[0]--;
-            if(get(mars,p)=="#") {     //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
+            } else if (get(mars, p).equals("w"))
+                p[0]--;
+            if (get(mars, p) == "#") {     //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
                 p[0]++;
 
             }
@@ -127,22 +124,19 @@ public class Start {
             int[] p = findeRover();
             if (get(mars, p).equals("s"))
                 p[1]--;
-                if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
-                  p[1]++;
-            }
-            else if (get(mars, p).equals("n"))
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
                 p[1]++;
-                if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
-                    p[1]--;
-            }
-            else if (get(mars, p).equals("w"))
+            } else if (get(mars, p).equals("n"))
+                p[1]++;
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
+                p[1]--;
+            } else if (get(mars, p).equals("w"))
                 p[0]++;
-                if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
-                  p[0]--;
-            }
-            else if (get(mars, p).equals("e"))
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
                 p[0]--;
-            if(get(mars,p)=="#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
+            } else if (get(mars, p).equals("e"))
+                p[0]--;
+            if (get(mars, p) == "#") {      //Wenn ein Hinderniss vorhanden ist, soll der Bewegungsvorgang rückgängig gemacht werden
                 p[0]++;
 
             }
